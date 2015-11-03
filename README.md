@@ -8,4 +8,5 @@ This project requires that [Vagrant](https://www.vagrantup.com/downloads.html), 
 
 1. Clone this repository
 2. From a command line, call: `vagrant up`
-3. SSH into the machine via: `vagrant ssh`
+
+The VM has an IP address of 192.168.50.10 and runs the Sinatra server inside a container that exposes port 80. So, after calling `vagrant up`, you can browse to 192.168.50.10 to see it working.
