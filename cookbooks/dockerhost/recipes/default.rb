@@ -7,3 +7,17 @@
 docker_service 'default' do
   action [:create, :start]
 end
+
+directory '/home/vagrant/myweb'
+
+cookbook_file '/home/vagrant/myweb/Gemfile' do
+  source 'Gemfile'
+end
+
+cookbook_file '/home/vagrant/myweb/index.rb' do
+  source 'index.rb'
+end
+
+execute 'start_sinatra' do
+  command 'sudo docker run -p 80:80 -v /home/vagrant/myweb:/usr/src/app -e MAIN_APP_FILE=index.rb -d erikap/ruby-sinatra'
+end
