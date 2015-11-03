@@ -1,6 +1,6 @@
 # Ubuntu with Docker
 
-This project sets up an Ubuntu 15.04 VM with Docker installed.
+This project sets up an Ubuntu VM with Docker installed. A Docker container then starts up Sinatra.
 
 # Usage
 
