@@ -1,5 +1,5 @@
 require 'sinatra'
 
 get '/' do
-  "Site 1"
+  "Site 2"
 end
