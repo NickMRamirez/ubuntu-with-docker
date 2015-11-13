@@ -6,4 +6,4 @@ description 'Installs/Configures dockerhost'
 long_description 'Installs/Configures dockerhost'
 version '0.1.0'
 
-depends 'docker'
+depends 'docker', '>= 2.2.8'
