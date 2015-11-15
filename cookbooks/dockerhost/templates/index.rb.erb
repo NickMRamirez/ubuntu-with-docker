@@ -1,0 +1,6 @@
+require 'sinatra'
+
+# Gets some text that tells you which site you're on
+get '/' do
+  "Site <%= @number %>"
+end

@@ -23,9 +23,9 @@ webserver_count = 2
     source 'Gemfile'
   end
 
-  cookbook_file "/home/vagrant/myweb#{count}/index.rb" do
-    source "index#{count}.rb"
-    notifies :run, "execute[start_sinatra#{count}]", :immediately
+  template "/home/vagrant/myweb#{count}/index.rb" do
+    variables :number => count
+	notifies :run, "execute[start_sinatra#{count}]", :immediately
   end
 
   execute "start_sinatra#{count}" do
@@ -43,9 +43,6 @@ cookbook_file '/home/vagrant/haproxy/haproxy.cfg' do
 end
 
 haproxy_docker_cmd = "sudo docker run -d -p 80:80 --name lb1 --net private_nw "
-# 1.upto(webserver_count) do |count|
-  # haproxy_docker_cmd << "--link web#{count}:web#{count} "
-# end
 
 haproxy_docker_cmd << '-v /home/vagrant/haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg haproxy'
 
